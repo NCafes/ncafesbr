@@ -1,0 +1,52 @@
+[
+  {
+    "nome": "Casa 27",
+    "local": "Grajaú, São Paulo",
+    "ano": "",
+    "acao": "Café N27 Pagode da 27",
+    "descricao": "Criamos o café N27 Pagode da 27 junto com a Casa 27, no Grajaú, para dar visibilidade ao projeto e à comunidade.",
+    "logo": "/img/social-logo-casa-27.jpg",
+    "fotos": [
+      "/img/social-cafe-n27.jpg"
+    ],
+    "link": "",
+    "disponivel": true
+  },
+  {
+    "nome": "Enchentes no Rio Grande do Sul",
+    "local": "Rio Grande do Sul",
+    "ano": "",
+    "acao": "Café N51, em parceria com a Broow",
+    "descricao": "Quando as enchentes atingiram o Rio Grande do Sul, criamos com a Broow o café N51 para apoiar as famílias atingidas.",
+    "logo": "",
+    "fotos": [
+      "/img/social-cafe-n51.jpg"
+    ],
+    "link": "",
+    "disponivel": true
+  },
+  {
+    "nome": "Creche Menino Jesus",
+    "local": "Batatais, São Paulo",
+    "ano": "",
+    "acao": "Café especial em apoio à creche",
+    "descricao": "Fizemos um café especial para apoiar a Creche Menino Jesus, em Batatais, que cuida de crianças pequenas.",
+    "logo": "/img/social-logo-creche-menino-jesus.jpg",
+    "fotos": [
+      "/img/social-cafe-creche.jpg"
+    ],
+    "link": "",
+    "disponivel": true
+  },
+  {
+    "nome": "Ninho Social",
+    "local": "",
+    "ano": "",
+    "acao": "",
+    "descricao": "Também apoiamos o projeto Ninho Social.",
+    "logo": "/img/social-logo-ninho.jpg",
+    "fotos": [],
+    "link": "",
+    "disponivel": true
+  }
+]

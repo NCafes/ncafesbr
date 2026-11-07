@@ -1,0 +1,48 @@
+[
+  {
+    "nome": "Drip Coffee",
+    "categoria": "Café prático",
+    "descricao": "Nosso café especial já moído, num sachê com filtro. Abra, encaixe na xícara e despeje água quente aos poucos. Bom para o escritório, para viagem e para presentear.",
+    "opcoes": [],
+    "variantes": [
+      "Sachê avulso",
+      "Caixa com 10 sachês"
+    ],
+    "preco": "",
+    "aviso": "",
+    "fotos": [
+      "/img/drip-coffee.jpg"
+    ],
+    "disponivel": true
+  },
+  {
+    "nome": "Boné No Sugar in My Coffee",
+    "categoria": "Acessório",
+    "descricao": "Boné preto com aba caramelo, frase bordada na frente e patch lateral com o N.",
+    "opcoes": [],
+    "variantes": [],
+    "preco": "",
+    "aviso": "",
+    "fotos": [
+      "/img/bone.jpg"
+    ],
+    "disponivel": true
+  },
+  {
+    "nome": "Cafezal Double IPA com Café",
+    "categoria": "Collab Cervejaria dos Moret e Sancho Pança",
+    "descricao": "Coffee IPA intensa e aromática, feita com café da Mantiqueira e lúpulos Tauê e Amarillo. Notas de café, cítricas e tropicais, com amargor equilibrado e final marcante. Cerveja puro malte.",
+    "opcoes": [
+      "Lata 473 ml",
+      "7,7% vol."
+    ],
+    "variantes": [],
+    "preco": "",
+    "aviso": "Venda proibida para menores de 18 anos. Beba com moderação.",
+    "fotos": [
+      "/img/cerveja-cafezal.jpg",
+      "/img/cerveja-chopp.jpg"
+    ],
+    "disponivel": true
+  }
+]

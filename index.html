@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>N Cafés Especiais</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="N Cafés Especiais: cafés de cinco regiões do Brasil, microlotes, drip coffee e torra artesanal. Peça pelo WhatsApp +55 11 98912-5041.">
+<meta property="og:title" content="N Cafés Especiais">
+<meta property="og:description" content="Cinco origens, microlotes especiais e torra artesanal. Peça pelo WhatsApp +55 11 98912-5041.">
+<meta property="og:image" content="img/ilustracao-n34.jpg">
+<link rel="icon" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;700;800&family=Karla:wght@400;500;700&display=swap">
+<style>
+body{margin:0}
+/* Layout: as ilustrações das cinco origens abrem a página e se alternam; o resto é branco, com muito respiro, e a cor vem das embalagens. */
+:root{
+  --bg:#ffffff;
+  --ink:#141414;
+  --muted:#5f5b57;
+  --line:#e8e5e1;
+  --soft:#f4f3f1;
+  --card:#ffffff;
+  --accent:#e85a50;
+  --btn-bg:#141414;
+  --btn-fg:#ffffff;
+  --display:"Dosis","Trebuchet MS",system-ui,sans-serif;
+  --body:"Karla","Helvetica Neue",Arial,sans-serif;
+  --wrap:1200px;
+  --gut:max(20px,env(safe-area-inset-left,0px));
+  --gut-r:max(20px,env(safe-area-inset-right,0px));
+  --r:10px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c0c0c;--ink:#f3f1ee;--muted:#a9a39c;--line:#262422;--soft:#161514;--card:#131211;--btn-bg:#f3f1ee;--btn-fg:#0c0c0c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0c0c0c;--ink:#f3f1ee;--muted:#a9a39c;--line:#262422;--soft:#161514;--card:#131211;--btn-bg:#f3f1ee;--btn-fg:#0c0c0c;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--bg)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.04;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.meta{font-size:.9rem;color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;font-family:var(--display);font-weight:700;font-size:1rem;letter-spacing:.04em;text-decoration:none;padding:.85em 1.45em;border-radius:999px;background:var(--btn-bg);color:var(--btn-fg);border:1.5px solid var(--btn-bg);cursor:pointer;transition:transform .15s ease,opacity .15s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:currentColor}
+.btn svg{width:1.15em;height:1.15em;flex:none}
+.link{font-family:var(--display);font-weight:700;font-size:.95rem;display:inline-flex;gap:.4em;align-items:center;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:2px;align-self:flex-start}
+.link::after{content:"→";transition:transform .15s}
+a.link:hover::after,button:hover .link::after{transform:translateX(3px)}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:20px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.brand img{width:42px;height:42px}
+.brand span{font-family:var(--display);font-weight:700;font-size:1.12rem}
+.nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0}
+.nav a{font-family:var(--display);font-weight:500;font-size:1rem;text-decoration:none;color:var(--muted);transition:color .15s}
+.nav a:hover{color:var(--ink)}
+.bar .btn{padding:.55em 1.05em;font-size:.9rem}
+.menu-btn{display:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;align-items:center;justify-content:center}
+.menu-btn svg{width:20px;height:20px}
+@media (max-width:960px){
+  .menu-btn{display:inline-flex}
+  .nav{position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);padding:8px var(--gut-r) 20px var(--gut);display:none}
+  header.open .nav{display:block}
+  .nav ul{flex-direction:column;gap:0}
+  .nav a{display:block;padding:14px 0;font-size:1.3rem;color:var(--ink);border-bottom:1px solid var(--line)}
+}
+@media (max-width:420px){.brand span{display:none}.bar .btn .t{display:none}.bar .btn{padding:.6em}}
+
+/* destaque das origens */
+.stage{position:relative;background:#111;overflow:hidden;aspect-ratio:2000/500;max-height:520px;width:100%}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.stage img.on{opacity:1}
+.stage-label{position:absolute;left:var(--gut);bottom:16px;display:flex;align-items:center;gap:10px;background:rgba(12,12,12,.72);color:#fff;font-family:var(--display);font-weight:700;font-size:.92rem;letter-spacing:.04em;padding:.45em .95em .45em .55em;border-radius:999px;backdrop-filter:blur(6px)}
+.stage-label i{width:12px;height:12px;border-radius:50%;background:var(--dot,#fff)}
+.dots{position:absolute;right:var(--gut-r);bottom:20px;display:flex;gap:6px}
+.dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.55);cursor:pointer}
+.dots button[aria-current="true"]{background:#fff;width:22px;border-radius:5px}
+@media (max-width:700px){.stage{aspect-ratio:4/3;max-height:none}.stage img{object-position:50% 50%}}
+
+.hero{padding-block:56px 72px;display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:end}
+.hero h1{font-size:clamp(2.5rem,6vw,5.1rem)}
+.hero h1 b{font-weight:800}
+.hero-side{display:grid;gap:24px;min-width:0}
+.hero-side p{color:var(--muted);font-size:1.08rem;max-width:42ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:24px;padding-block:36px 56px}}
+
+section{padding-block:88px}
+.alt{background:var(--soft)}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px 32px;flex-wrap:wrap;margin-bottom:36px}
+.sec-head h2,.big{font-size:clamp(2rem,4.2vw,3.25rem);margin-top:6px}
+.sec-head>p{color:var(--muted);max-width:44ch}
+@media (max-width:640px){section{padding-block:60px}.sec-head{margin-bottom:26px}}
+
+/* trilho: grade no computador, carrossel deslizante no celular */
+.rail{display:grid;gap:18px}
+.rail.cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.rail.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){
+  .rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:calc(-1*var(--gut));margin-right:calc(-1*var(--gut-r));padding:0 var(--gut-r) 6px var(--gut);scroll-padding-left:var(--gut);scrollbar-width:none}
+  .rail::-webkit-scrollbar{display:none}
+  .rail>*{flex:0 0 44%;scroll-snap-align:start}
+}
+@media (max-width:600px){.rail>*{flex-basis:72%}}
+
+.card{display:flex;flex-direction:column;gap:12px;text-align:left;background:none;border:0;padding:0;cursor:pointer;min-width:0}
+.photo{position:relative;margin:0;background:var(--c,var(--soft));border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;width:100%}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.code{font-family:var(--display);font-weight:800;font-size:1.6rem;line-height:1}
+.card h3{font-size:1.2rem;line-height:1.15}
+.card .notes{font-size:.92rem}
+.card .link{margin-top:auto}
+
+/* microlotes */
+.micro-list{display:grid;gap:18px}
+.lot{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-align:left;padding:0;cursor:pointer;width:100%}
+.lot .photo{border-radius:0;aspect-ratio:auto;min-height:250px;height:100%}
+.lot .photo.empty{background:#f5c02c url("img/ilustracao-n35.jpg") 30% 50%/auto 130% no-repeat}
+.lot-body{padding:28px;display:grid;gap:14px;align-content:start;min-width:0}
+.lot-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.pill{font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;padding:.35em .85em;border-radius:999px;background:var(--ink);color:var(--bg)}
+.lot h3{font-size:clamp(1.55rem,3vw,2.1rem)}
+.specs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 20px;margin:0;padding-top:14px;border-top:1px solid var(--line)}
+.specs div{min-width:0}
+.specs dt{font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.specs dd{margin:2px 0 0;font-family:var(--display);font-weight:500;font-size:1.1rem;overflow-wrap:anywhere}
+.lot-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.price{font-family:var(--display);font-weight:800;font-size:1.35rem}
+@media (max-width:760px){.lot{grid-template-columns:1fr}.lot .photo{min-height:0;aspect-ratio:16/10}.specs{grid-template-columns:repeat(2,minmax(0,1fr))}.lot-body{padding:22px}}
+.empty-state{padding:32px;border:1px dashed var(--line);border-radius:var(--r);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;background:var(--card)}
+.empty-state p{color:var(--muted);max-width:52ch}
+
+/* outros */
+.item .photo{aspect-ratio:4/5}
+.item h3{font-size:1.35rem}
+.item .desc{color:var(--muted);font-size:.95rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-family:var(--display);font-weight:500;font-size:.86rem;padding:.25em .8em;border:1px solid var(--line);border-radius:999px}
+
+/* sobre */
+.about{display:grid;grid-template-columns:1fr 1.15fr;gap:24px 64px;align-items:start}
+.about-text{display:grid;gap:16px;color:var(--muted);font-size:1.05rem;max-width:62ch;min-width:0}
+.about-text p:first-child{color:var(--ink);font-size:1.28rem;line-height:1.45}
+.about-photos{grid-column:1/-1;display:grid;grid-template-columns:.78fr 1fr;gap:16px;margin-top:24px}
+.about-photos img{width:100%;height:clamp(260px,36vw,460px);object-fit:cover;border-radius:var(--r)}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+@media (max-width:600px){.about-photos{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:calc(-1*var(--gut));margin-right:calc(-1*var(--gut-r));padding:0 var(--gut-r) 0 var(--gut);scrollbar-width:none}.about-photos img{flex:0 0 82%;height:auto;aspect-ratio:4/5;scroll-snap-align:start}}
+
+/* carrossel de produtores */
+.car-nav{display:flex;gap:8px}
+.car-nav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--ink);background:transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:opacity .2s,background .2s,color .2s}
+.car-nav button:hover:not(:disabled){background:var(--ink);color:var(--bg)}
+.car-nav button:disabled{opacity:.25;cursor:default}
+.car-nav svg{width:18px;height:18px}
+.track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:0 var(--gut-r) 8px var(--gut);scroll-padding-left:var(--gut);scrollbar-width:none;max-width:calc(var(--wrap) + 480px);margin:0 auto}
+.track::-webkit-scrollbar{display:none}
+.track figure{margin:0;flex:0 0 clamp(270px,34vw,440px);scroll-snap-align:start;display:grid;gap:10px;align-content:start}
+.track img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r);background:var(--line)}
+.track figcaption{display:grid;gap:1px;line-height:1.35}
+.track figcaption strong{font-family:var(--display);font-weight:700;font-size:1.05rem}
+.track figcaption span{font-size:.88rem;color:var(--muted)}
+@media (min-width:1680px){.track{padding-left:0;padding-right:0}}
+@media (max-width:600px){.track figure{flex-basis:84%}.car-nav{display:none}}
+
+/* café social */
+.proj{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;min-width:0}
+.proj-photo{margin:0;aspect-ratio:1/1;background:var(--soft);overflow:hidden}
+.proj-photo img{width:100%;height:100%;object-fit:cover}
+.proj-body{padding:22px;display:grid;gap:12px;align-content:start;flex:1}
+.proj-id{display:flex;align-items:center;gap:12px;min-width:0}
+.proj-logo{width:50px;height:50px;flex:none;border-radius:50%;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.proj-logo img{width:100%;height:100%;object-fit:contain}
+.proj h3{font-size:1.4rem;line-height:1.1}
+.proj .desc{color:var(--muted);font-size:.95rem}
+.proj .prod{font-family:var(--display);font-weight:700;font-size:1rem;display:grid;gap:2px;padding-top:12px;border-top:1px solid var(--line)}
+.proj .prod span{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.also{margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;padding:20px 24px;border:1px solid var(--line);border-radius:var(--r)}
+.also-item{display:flex;align-items:center;gap:14px;min-width:0;text-decoration:none}
+.also-item .proj-logo{width:60px;height:60px;border-radius:8px}
+.also-item strong{font-family:var(--display);font-weight:700;font-size:1.12rem;display:block;line-height:1.2}
+.also-item span{font-size:.88rem;color:var(--muted)}
+
+/* rodapé */
+.cta-band{background:var(--btn-bg);color:var(--btn-fg)}
+.cta-in{display:grid;grid-template-columns:1.3fr 1fr;gap:28px 48px;align-items:center;padding-block:72px}
+.cta-in h2{font-size:clamp(2rem,4.4vw,3.4rem)}
+.cta-in p{opacity:.75;margin-top:14px;max-width:46ch}
+.cta-in .actions{justify-content:flex-end}
+.cta-in .btn{background:var(--btn-fg);color:var(--btn-bg);border-color:var(--btn-fg)}
+.cta-in .btn.ghost{background:transparent;color:var(--btn-fg);border-color:var(--btn-fg)}
+@media (max-width:860px){.cta-in{grid-template-columns:1fr;padding-block:56px}.cta-in .actions{justify-content:flex-start}}
+footer{padding-block:28px calc(28px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px 24px;font-size:.9rem;color:var(--muted)}
+.foot-brand{display:flex;align-items:center;gap:10px}
+.foot-brand img{width:32px;height:32px}
+.foot nav{display:flex;flex-wrap:wrap;gap:6px 20px}
+.foot a{text-decoration:none}.foot a:hover{color:var(--ink)}
+
+/* página do produto */
+dialog{border:0;padding:0;border-radius:14px;background:var(--bg);color:var(--ink);width:min(960px,calc(100% - 24px));max-height:calc(100% - 24px);overflow:auto}
+dialog::backdrop{background:rgba(10,10,10,.62);backdrop-filter:blur(3px)}
+.dlg-banner{aspect-ratio:2000/420;width:100%;object-fit:cover;display:block}
+.dlg{display:grid;grid-template-columns:.9fr 1fr}
+.dlg-media{display:grid;align-content:start;gap:10px;padding:20px;min-width:0}
+.dlg-main{aspect-ratio:3/4;width:100%;border-radius:var(--r);overflow:hidden;background:var(--c,var(--soft))}
+.dlg-main img{width:100%;height:100%;object-fit:cover}
+.thumbs{display:flex;gap:8px;flex-wrap:wrap}
+.thumbs button{width:62px;height:62px;border-radius:8px;overflow:hidden;border:2px solid transparent;padding:0;background:var(--soft);cursor:pointer}
+.thumbs button[aria-current="true"]{border-color:var(--ink)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.dlg-body{padding:32px 32px 32px 12px;display:grid;gap:16px;align-content:start;min-width:0}
+.dlg-body h2{font-size:clamp(1.8rem,3.4vw,2.5rem)}
+.dlg-body .lead{color:var(--muted)}
+.dlg-body .specs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.dlg-body .actions{gap:10px}
+.close{position:sticky;top:12px;float:right;margin:12px 12px -52px 0;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:rgba(12,12,12,.7);color:#fff;cursor:pointer;font-size:1.4rem;line-height:1}
+.hint{font-size:.86rem;color:var(--muted)}
+.warn{font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+@media (max-width:760px){.dlg{grid-template-columns:1fr}.dlg-media{padding:16px 16px 0}.dlg-main{aspect-ratio:1/1}.dlg-body{padding:22px 20px 26px}.dlg-body .actions .btn{flex:1 1 100%}}
+
+
+/* cards com botão de adicionar */
+.card-open{display:flex;flex-direction:column;gap:12px;text-align:left;background:none;border:0;padding:0;cursor:pointer;width:100%;min-width:0}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:4px}
+.card-foot .link{border:0;background:none;padding:0 0 2px;border-bottom:1.5px solid currentColor;cursor:pointer}
+.add{display:inline-flex;align-items:center;gap:6px;font-family:var(--display);font-weight:700;font-size:.9rem;padding:.45em .95em;border-radius:999px;border:1.5px solid var(--ink);background:transparent;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap}
+.add:hover,.add.done{background:var(--ink);color:var(--bg)}
+.lot-photo{display:block;padding:0;border:0;background:none;cursor:pointer;min-width:0}
+.lot-photo .photo{height:100%}
+.lot .lot-foot .acts{display:flex;align-items:center;gap:14px}
+@media (max-width:420px){.card-foot{flex-wrap:wrap}.card-foot .link{display:none}.add{width:100%;justify-content:center}}
+
+/* escolha no produto */
+.choose{display:grid;gap:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{font-family:var(--display);font-weight:500;font-size:.95rem;padding:.45em 1em;border-radius:999px;border:1.5px solid var(--line);background:transparent;cursor:pointer}
+.chips button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.qty{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;overflow:hidden}
+.qty button{width:40px;height:40px;border:0;background:transparent;cursor:pointer;font-size:1.2rem;line-height:1}
+.qty button:hover{background:var(--soft)}
+.qty output{min-width:30px;text-align:center;font-family:var(--display);font-weight:700;font-size:1.05rem;font-variant-numeric:tabular-nums}
+.qty.sm button{width:32px;height:32px;font-size:1rem}
+.buy-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+
+/* contador do pedido */
+.count{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--accent);color:#fff;font-size:.78rem;font-weight:800;font-variant-numeric:tabular-nums}
+.count[hidden]{display:none!important}
+.float-bag{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:35;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.float-bag[hidden]{display:none!important}
+
+/* sacola */
+dialog.sheet{margin:0 0 0 auto;height:100%;max-height:100%;width:min(440px,100%);max-width:100%;border-radius:0;display:none;flex-direction:column}
+dialog.sheet[open]{display:flex}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 22px;border-bottom:1px solid var(--line)}
+.sheet-head h2{font-size:1.6rem}
+.sheet-head .x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;font-size:1.3rem;line-height:1}
+.sheet-list{flex:1;overflow:auto;padding:8px 22px;list-style:none;margin:0}
+.sheet-list li{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.sheet-list img,.sheet-list .ph{width:56px;height:56px;border-radius:8px;object-fit:cover;background:var(--c,var(--soft))}
+.sheet-list strong{font-family:var(--display);font-weight:700;font-size:1.05rem;line-height:1.2;display:block}
+.sheet-list .meta{display:block}
+.sheet-list .rm{border:0;background:none;padding:0;color:var(--muted);font-size:.82rem;text-decoration:underline;cursor:pointer;margin-top:4px}
+.sheet-foot{padding:18px 22px calc(18px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);display:grid;gap:12px}
+.sheet-foot label{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.sheet-foot textarea{width:100%;min-height:70px;resize:vertical;font:inherit;font-size:.95rem;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.sheet-foot .btn{width:100%}
+.sheet-empty{flex:1;display:grid;align-content:center;justify-items:start;gap:16px;padding:32px 22px}
+.sheet-empty p{color:var(--muted);max-width:34ch}
+@media (max-width:600px){dialog.sheet{margin:auto 0 0;width:100%;height:auto;max-height:90%;border-radius:16px 16px 0 0}}
+
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--btn-bg);color:var(--btn-fg);padding:12px 20px;border-radius:999px;font-family:var(--display);font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:60;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+
+<header id="cabecalho">
+  <div class="wrap bar">
+    <a class="brand" href="#topo" aria-label="N Cafés, início">
+      <img src="img/logo.png" alt="" width="42" height="42">
+      <span>N Cafés</span>
+    </a>
+    <nav class="nav" id="menu" aria-label="Seções">
+      <ul>
+        <li><a href="#cafes">Cafés</a></li>
+        <li><a href="#microlotes">Microlotes</a></li>
+        <li><a href="#produtos">Drip e mais</a></li>
+        <li><a href="#sobre">Quem somos</a></li>
+        <li><a href="#social">Café Social</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="https://wa.me/5511989125041?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido." target="_blank" rel="noopener" data-open-bag aria-label="Faça seu pedido">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>
+      <span class="t">Faça seu pedido</span>
+      <span class="count" data-count hidden>0</span>
+    </a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="topo">
+  <div class="stage" id="stage" aria-label="Ilustrações das origens dos cafés">
+    <img class="on" src="img/ilustracao-n34.jpg" alt="Ilustração da origem Cerrado Mineiro: dois personagens brindam com xícaras de café sob o sol." width="2000" height="498">
+    <span class="stage-label" id="stage-label" style="--dot:#f5c02c"><i></i>N34 · Cerrado Mineiro</span>
+    <div class="dots" id="stage-dots"></div>
+  </div>
+
+  <div class="wrap hero">
+    <h1>Cinco origens.<br><b>Um café para cada história.</b></h1>
+    <div class="hero-side">
+      <p>Produtores, torradores e apaixonados por café. Torramos em pequenos lotes os cafés da nossa lavoura e de parceiros nas principais regiões do Brasil.</p>
+      <div class="actions">
+        <a class="btn" href="#cafes">Conhecer os cafés</a>
+        <a class="btn ghost" href="https://wa.me/5511989125041?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido." target="_blank" rel="noopener" data-open-bag><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>Faça seu pedido</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="cafes" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Cafés por região</p><h2>Escolha sua origem</h2></div>
+        <p>Cada embalagem tem a cor e a ilustração da sua região. Adicione quantos cafés e produtos quiser e envie tudo num pedido só pelo WhatsApp.</p>
+      </div>
+      <div class="rail cols-5" id="lista-cafes"><p class="meta">Carregando cafés…</p></div>
+    </div>
+  </section>
+
+  <section id="microlotes">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Microlotes especiais</p><h2>Lotes pequenos, por tempo limitado</h2></div>
+        <p>Cafés de uma única propriedade, em quantidade limitada. Quando acabam, não voltam.</p>
+      </div>
+      <div class="micro-list" id="lista-microlotes"><p class="meta">Carregando microlotes…</p></div>
+    </div>
+  </section>
+
+  <section id="produtos" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Drip, boné e parcerias</p><h2>Também na nossa banca</h2></div>
+        <p>Café prático para o dia a dia, acessórios e as collabs que fazemos com quem também ama café.</p>
+      </div>
+      <div class="rail cols-3" id="lista-outros"><p class="meta">Carregando produtos…</p></div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="wrap about">
+      <div><p class="eyebrow">Quem somos</p><h2 class="big">Cada xícara conta uma história</h2></div>
+      <div class="about-text">
+        <p>Somos a N Cafés Especiais: produtores, torradores e, acima de tudo, apaixonados por café.</p>
+        <p>Além da nossa própria lavoura, percorremos as principais regiões produtoras do Brasil em busca de parceiros que cultivam cafés especiais com cuidado e respeito, valorizando cada produtor, suas origens e o jeito único do seu trabalho.</p>
+        <p>Com torra artesanal e curadoria cuidadosa, levamos até você cafés com personalidade própria e um sensorial diferente em cada origem. Nosso compromisso é com a qualidade, com a diversidade dos cafés brasileiros e com as histórias de quem dedica a vida a cultivar.</p>
+      </div>
+      <div class="about-photos">
+        <img src="img/equipe-coado.jpg" alt="Integrante da N Cafés passa um café coado vestindo a camiseta da marca" loading="lazy">
+        <img src="img/equipe-fundadores.jpg" alt="Dois integrantes da N Cafés sorriem segurando embalagens N34, N11, N35 e N77" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="produtores" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Parceiros produtores</p><h2>O coração da N Cafés</h2></div>
+        <div class="car-nav" aria-label="Navegar pelas fotos">
+          <button type="button" data-dir="-1" aria-label="Fotos anteriores"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button type="button" data-dir="1" aria-label="Próximas fotos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      <p class="meta" style="max-width:60ch;margin:-14px 0 28px">Pequenos produtores, espalhados pelo Brasil, que viraram amigos. Eles cuidam de cada etapa para que o café chegue com identidade e excelência.</p>
+    </div>
+    <div class="track" id="lista-produtores" tabindex="0" aria-label="Fotos dos produtores parceiros"></div>
+  </section>
+
+  <section id="social">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Café Social</p><h2>Histórias que vão além da xícara</h2></div>
+        <p>Por meio do café, damos voz e visibilidade a projetos que geram transformação, principalmente na educação de crianças e adolescentes. Estas são algumas das iniciativas que já apoiamos.</p>
+      </div>
+      <div id="lista-social"><p class="meta">Carregando projetos…</p></div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap cta-in">
+      <div>
+        <h2>Prove antes de levar</h2>
+        <p>Estamos em feiras pela cidade com as origens para degustar. A agenda e os novos microlotes saem primeiro no Instagram. Pedidos pelo WhatsApp <b>+55 11 98912-5041</b>.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://wa.me/5511989125041?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido." target="_blank" rel="noopener" data-open-bag><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>Faça seu pedido</a>
+        <a class="btn ghost" href="https://www.instagram.com/ncafesbr/" target="_blank" rel="noopener">Seguir @ncafesbr</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="foot-brand"><img src="img/logo.png" alt="" width="32" height="32">N Cafés Especiais · ncafesbr.com.br</span>
+    <nav aria-label="Rodapé">
+      <a href="#cafes">Cafés</a>
+      <a href="#microlotes">Microlotes</a>
+      <a href="#social">Café Social</a>
+      <a href="https://www.instagram.com/ncafesbr/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/5511989125041?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido." target="_blank" rel="noopener">WhatsApp +55 11 98912-5041</a>
+    </nav>
+  </div>
+</footer>
+
+<dialog id="produto" aria-labelledby="dlg-titulo"><div id="dlg-conteudo"></div></dialog>
+<dialog id="sacola" class="sheet" aria-labelledby="sacola-titulo">
+  <div class="sheet-head"><h2 id="sacola-titulo">Seu pedido</h2><button class="x" type="button" data-close-bag aria-label="Fechar">×</button></div>
+  <div id="sacola-corpo" style="display:contents"></div>
+</dialog>
+<button class="btn float-bag" id="float-bag" type="button" data-open-bag hidden>Ver seu pedido <span class="count" data-count>0</span></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var WA_NUM='5511989125041';
+  var WAI=document.querySelector('[data-open-bag] svg').outerHTML;
+  var store={};
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function src(p){return esc(String(p||'').replace(/^\//,''))}
+  function fotos(p){return (Array.isArray(p.fotos)?p.fotos:(p.fotos?[p.fotos]:[])).filter(Boolean)}
+  function ativos(l){return (Array.isArray(l)?l:[]).filter(function(p){return p&&p.disponivel!==false})}
+  function lista(l){return Array.isArray(l)?l.filter(Boolean):[]}
+  function load(n){return fetch('conteudo/'+n+'.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw 0;return r.json()}).catch(function(){return null})}
+  function photo(p,alt){
+    var f=fotos(p);
+    if(!f.length) return '<figure class="photo empty" style="--c:'+esc(p.cor||'')+'"></figure>';
+    return '<figure class="photo" style="--c:'+esc(p.cor||'')+'"><img src="'+src(f[0])+'" alt="'+esc(alt)+'" loading="lazy"></figure>';
+  }
+  function falha(el){el.innerHTML='<div class="empty-state"><p>Não conseguimos carregar esta lista agora. Fale com a gente pelo WhatsApp ou Instagram.</p><a class="btn ghost" href="https://www.instagram.com/ncafesbr/" target="_blank" rel="noopener">Abrir Instagram</a></div>'}
+  function tags(l){l=lista(l);return l.length?'<div class="tags">'+l.map(function(o){return '<span class="tag">'+esc(o)+'</span>'}).join('')+'</div>':''}
+
+  /* nome de cada item como vai no pedido */
+  function nomeItem(e){
+    var p=e.p;
+    if(e.tipo==='cafe') return p.codigo+' '+p.regiao+(p.peso?' ('+p.peso+')':'');
+    if(e.tipo==='micro') return 'Microlote '+p.nome+(p.peso?' ('+p.peso+')':'');
+    return p.nome;
+  }
+
+  /* ---------- pedido (sacola) ---------- */
+  var KEY='ncafes-pedido', cart=[];
+  try{cart=JSON.parse(localStorage.getItem(KEY)||'[]');if(!Array.isArray(cart))cart=[]}catch(e){cart=[]}
+  function salvar(){try{localStorage.setItem(KEY,JSON.stringify(cart))}catch(e){}}
+  function total(){return cart.reduce(function(n,i){return n+i.q},0)}
+  function adicionar(e,variante,q){
+    var k=nomeItem(e)+(variante?' | '+variante:'');
+    var f=fotos(e.p);
+    var it=cart.filter(function(i){return i.k===k})[0];
+    if(it) it.q+=q; else cart.push({k:k,nome:nomeItem(e),v:variante||'',q:q,img:f[0]||'',cor:e.p.cor||''});
+    salvar();atualizar();
+    toast(q+'x '+nomeItem(e)+' no pedido');
+  }
+  function msg(){
+    var obs=(document.getElementById('obs')||{}).value||'';
+    var t='Olá! Quero fazer este pedido:\n\n'+cart.map(function(i){return '• '+i.q+'x '+i.nome+(i.v?' – '+i.v:'')}).join('\n');
+    if(obs.trim()) t+='\n\nObservações: '+obs.trim();
+    return t;
+  }
+  function waLink(texto){return 'https://wa.me/'+WA_NUM+'?text='+encodeURIComponent(texto)}
+  function atualizar(){
+    var n=total();
+    document.querySelectorAll('[data-count]').forEach(function(c){c.textContent=n;c.hidden=n===0});
+    var fb=document.getElementById('float-bag');fb.hidden=n===0||sacola.open;
+    fb.firstChild.textContent=n===1?'Ver seu pedido · 1 item ':'Ver seu pedido · '+n+' itens ';
+    if(sacola.open) desenharSacola();
+  }
+  var sacola=document.getElementById('sacola'),corpo=document.getElementById('sacola-corpo'),obsTxt='';
+  function desenharSacola(){
+    var o=document.getElementById('obs');if(o)obsTxt=o.value;
+    if(!cart.length){
+      corpo.innerHTML='<div class="sheet-empty"><p>Seu pedido está vazio. Escolha seus cafés e produtos no site, ou fale direto com a gente.</p>'+
+        '<button class="btn" type="button" data-close-bag data-go="#cafes">Ver os cafés</button>'+
+        '<a class="btn ghost" href="'+waLink('Olá! Quero fazer um pedido.')+'" target="_blank" rel="noopener">'+WAI+'Falar no WhatsApp</a></div>';
+      return;
+    }
+    corpo.innerHTML='<ul class="sheet-list">'+cart.map(function(i,ix){
+      return '<li>'+(i.img?'<img src="'+src(i.img)+'" alt="" style="--c:'+esc(i.cor)+'">':'<span class="ph" style="--c:'+esc(i.cor)+'"></span>')+
+        '<div><strong>'+esc(i.nome)+'</strong>'+(i.v?'<span class="meta">'+esc(i.v)+'</span>':'')+'<button class="rm" type="button" data-rm="'+ix+'">Remover</button></div>'+
+        '<div class="qty sm"><button type="button" data-q="'+ix+'" data-d="-1" aria-label="Diminuir">−</button><output>'+i.q+'</output><button type="button" data-q="'+ix+'" data-d="1" aria-label="Aumentar">+</button></div></li>';
+    }).join('')+'</ul>'+
+    '<div class="sheet-foot"><label for="obs">Observações (opcional)</label>'+
+      '<textarea id="obs" placeholder="Ex.: moído para coado, entrega ou retirada, presente">'+esc(obsTxt)+'</textarea>'+
+      '<a class="btn" id="enviar" href="#" target="_blank" rel="noopener">'+WAI+'Enviar pedido pelo WhatsApp</a>'+
+      '<p class="hint">Abre o WhatsApp da N Cafés com o pedido já escrito. A gente responde com valores, pagamento e entrega.</p></div>';
+    var env=document.getElementById('enviar');
+    function upd(){env.href=waLink(msg())}
+    upd();document.getElementById('obs').addEventListener('input',upd);
+  }
+  function abrirSacola(){desenharSacola();if(sacola.showModal)sacola.showModal();else sacola.setAttribute('open','');atualizar()}
+  function fecharSacola(){if(sacola.open){if(sacola.close)sacola.close();else sacola.removeAttribute('open')}atualizar()}
+  sacola.addEventListener('close',atualizar);
+  sacola.addEventListener('click',function(ev){
+    if(ev.target===sacola){fecharSacola();return}
+    var q=ev.target.closest('[data-q]');
+    if(q){var i=cart[+q.dataset.q];i.q+=Number(q.dataset.d);if(i.q<1)cart.splice(+q.dataset.q,1);salvar();atualizar();return}
+    var rm=ev.target.closest('[data-rm]');
+    if(rm){cart.splice(+rm.dataset.rm,1);salvar();atualizar();return}
+    var en=ev.target.closest('#enviar');
+    if(en){en.href=waLink(msg());return}
+    var cl=ev.target.closest('[data-close-bag]');
+    if(cl){fecharSacola();if(cl.dataset.go){var t=document.querySelector(cl.dataset.go);if(t)t.scrollIntoView({behavior:reduce?'auto':'smooth'})}}
+  });
+
+  /* ---------- menu do celular ---------- */
+  var head=document.getElementById('cabecalho'),mb=document.getElementById('menu-btn');
+  mb.addEventListener('click',function(){var o=head.classList.toggle('open');mb.setAttribute('aria-expanded',String(o));mb.setAttribute('aria-label',o?'Fechar menu':'Abrir menu')});
+  document.getElementById('menu').addEventListener('click',function(e){if(e.target.closest('a')){head.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+
+  /* ---------- destaque das origens ---------- */
+  function stage(cafes){
+    var list=ativos(cafes).filter(function(c){return c.ilustracao});
+    if(list.length<2) return;
+    var st=document.getElementById('stage'),label=document.getElementById('stage-label'),dots=document.getElementById('stage-dots');
+    var first=st.querySelector('img');
+    var start=Math.max(0,list.findIndex(function(c){return src(c.ilustracao)===first.getAttribute('src')}));
+    var imgs=list.map(function(c,i){
+      if(i===start){first.alt='Ilustração da origem '+c.regiao;return first}
+      var im=new Image();im.src=src(c.ilustracao);im.alt='Ilustração da origem '+c.regiao;im.loading='lazy';st.insertBefore(im,label);return im;
+    });
+    dots.innerHTML=list.map(function(c,i){return '<button type="button" aria-label="'+esc(c.codigo+' '+c.regiao)+'" aria-current="'+(i===start)+'"></button>'}).join('');
+    var cur=start,timer;
+    function show(i){
+      imgs[cur].classList.remove('on');cur=(i+list.length)%list.length;imgs[cur].classList.add('on');
+      label.style.setProperty('--dot',list[cur].cor||'#fff');label.lastChild.textContent=list[cur].codigo+' · '+list[cur].regiao.split(' e ')[0];
+      [].forEach.call(dots.children,function(b,j){b.setAttribute('aria-current',String(j===cur))});
+    }
+    function play(){clearInterval(timer);if(!reduce)timer=setInterval(function(){show(cur+1)},6000)}
+    dots.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;show([].indexOf.call(dots.children,b));play()});
+    play();
+  }
+
+  /* ---------- listas ---------- */
+  function foot(id,e){
+    return '<div class="card-foot"><button class="link" type="button" data-id="'+id+'">Ver detalhes</button>'+
+      '<button class="add" type="button" data-add="'+id+'" aria-label="Adicionar '+esc(nomeItem(e))+' ao pedido">+ Adicionar</button></div>';
+  }
+  function renderCafes(l){
+    var el=document.getElementById('lista-cafes');
+    if(l===null) return falha(el);
+    el.innerHTML=ativos(l).map(function(p,i){
+      var id='cafe-'+i,e={tipo:'cafe',p:p};store[id]=e;
+      return '<div class="card"><button class="card-open" type="button" data-id="'+id+'" aria-label="Ver '+esc(p.codigo+' '+p.regiao)+'">'+
+        photo(p,'Embalagem do café '+p.codigo)+'<span class="code">'+esc(p.codigo)+'</span><h3>'+esc(p.regiao)+'</h3>'+
+        (p.notas?'<span class="notes">'+esc(p.notas)+'</span>':'')+
+        '<span class="meta">'+esc([p.peso,p.preco].filter(Boolean).join(' · '))+'</span></button>'+foot(id,e)+'</div>';
+    }).join('');
+  }
+  function specs(p){
+    var c=[['Variedade',p.variedade],['Processo',p.processo],['Altitude',p.altitude],['Pontuação SCA',p.pontuacao]].filter(function(x){return x[1]});
+    return c.length?'<dl class="specs">'+c.map(function(x){return '<div><dt>'+x[0]+'</dt><dd>'+esc(x[1])+'</dd></div>'}).join('')+'</dl>':'';
+  }
+  function renderMicro(l){
+    var el=document.getElementById('lista-microlotes');
+    if(l===null) return falha(el);
+    var a=ativos(l);
+    if(!a.length){el.innerHTML='<div class="empty-state"><p>Nenhum microlote disponível agora. Os próximos lotes são anunciados primeiro no Instagram.</p><a class="btn ghost" href="https://www.instagram.com/ncafesbr/" target="_blank" rel="noopener">Seguir @ncafesbr</a></div>';return}
+    el.innerHTML=a.map(function(p,i){
+      var id='micro-'+i,e={tipo:'micro',p:p};store[id]=e;
+      var o=[p.produtor,p.regiao].filter(Boolean).join(' · ');
+      return '<div class="lot"><button class="lot-photo" type="button" data-id="'+id+'" aria-label="Ver microlote '+esc(p.nome)+'">'+photo(p,'Microlote '+p.nome)+'</button>'+
+        '<div class="lot-body"><div class="lot-top">'+(p.selo?'<span class="pill">'+esc(p.selo)+'</span>':'')+(o?'<span class="meta">'+esc(o)+'</span>':'')+'</div>'+
+        '<h3>'+esc(p.nome)+'</h3>'+(p.notas?'<p>'+esc(p.notas)+'</p>':'')+specs(p)+
+        '<div class="lot-foot"><span class="meta">'+esc([p.peso,p.quantidade].filter(Boolean).join(' · '))+'</span>'+
+        '<div class="acts">'+(p.preco?'<span class="price">'+esc(p.preco)+'</span>':'')+
+        '<button class="link" type="button" data-id="'+id+'" style="border:0;border-bottom:1.5px solid currentColor;background:none;padding:0 0 2px;cursor:pointer">Ver detalhes</button>'+
+        '<button class="add" type="button" data-add="'+id+'" aria-label="Adicionar microlote '+esc(p.nome)+' ao pedido">+ Adicionar</button></div></div></div></div>';
+    }).join('');
+  }
+  function renderOutros(l){
+    var el=document.getElementById('lista-outros');
+    if(l===null) return falha(el);
+    el.innerHTML=ativos(l).map(function(p,i){
+      var id='outro-'+i,e={tipo:'outro',p:p};store[id]=e;
+      return '<div class="card item"><button class="card-open" type="button" data-id="'+id+'" aria-label="Ver '+esc(p.nome)+'">'+photo(p,p.nome)+
+        (p.categoria?'<span class="eyebrow">'+esc(p.categoria)+'</span>':'')+'<h3>'+esc(p.nome)+'</h3>'+
+        (p.descricao?'<p class="desc">'+esc(p.descricao)+'</p>':'')+tags(p.opcoes)+
+        (p.preco?'<span class="price">'+esc(p.preco)+'</span>':'')+'</button>'+foot(id,e)+'</div>';
+    }).join('');
+  }
+  function renderProdutores(l){
+    var el=document.getElementById('lista-produtores');
+    if(l===null){el.innerHTML='';return}
+    el.innerHTML=ativos(l).filter(function(p){return p.foto}).map(function(p){
+      var cap=(p.legenda||p.local)?'<figcaption>'+(p.legenda?'<strong>'+esc(p.legenda)+'</strong>':'')+(p.local?'<span>'+esc(p.local)+'</span>':'')+'</figcaption>':'';
+      return '<figure><img src="'+src(p.foto)+'" alt="'+esc(p.legenda||'Produtor parceiro da N Cafés no cafezal')+'" loading="lazy">'+cap+'</figure>';
+    }).join('');
+    carrossel(el,document.querySelector('#produtores .car-nav'));
+  }
+  function carrossel(track,nav){
+    if(!nav) return;
+    var bs=nav.querySelectorAll('button');
+    function upd(){bs[0].disabled=track.scrollLeft<8;bs[1].disabled=track.scrollLeft+track.clientWidth>=track.scrollWidth-8}
+    nav.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var f=track.querySelector('figure');var step=f?f.getBoundingClientRect().width+16:track.clientWidth*.8;track.scrollBy({left:step*Number(b.dataset.dir)*(window.innerWidth>1100?2:1),behavior:reduce?'auto':'smooth'})});
+    track.addEventListener('scroll',function(){window.requestAnimationFrame(upd)},{passive:true});
+    window.addEventListener('resize',upd);upd();
+  }
+  function renderSocial(l){
+    var el=document.getElementById('lista-social');
+    if(l===null) return falha(el);
+    var a=ativos(l),com=a.filter(function(p){return fotos(p).length}),sem=a.filter(function(p){return !fotos(p).length});
+    function logo(p){return p.logo?'<span class="proj-logo"><img src="'+src(p.logo)+'" alt="Logo '+esc(p.nome)+'" loading="lazy"></span>':''}
+    function sub(p){return [p.local,p.ano].filter(Boolean).join(' · ')}
+    var h='';
+    if(com.length) h+='<div class="rail cols-3">'+com.map(function(p){
+      return '<article class="proj"><figure class="proj-photo"><img src="'+src(fotos(p)[0])+'" alt="'+esc(p.acao||p.nome)+'" loading="lazy"></figure>'+
+        '<div class="proj-body"><div class="proj-id">'+logo(p)+'<div>'+(sub(p)?'<p class="eyebrow">'+esc(sub(p))+'</p>':'')+'<h3>'+esc(p.nome)+'</h3></div></div>'+
+        (p.descricao?'<p class="desc">'+esc(p.descricao)+'</p>':'')+
+        (p.acao?'<p class="prod"><span>Como ajudamos</span>'+esc(p.acao)+'</p>':'')+
+        (p.link?'<a class="link" href="'+esc(p.link)+'" target="_blank" rel="noopener">Conhecer o projeto</a>':'')+'</div></article>';
+    }).join('')+'</div>';
+    if(sem.length) h+='<div class="also"><span class="eyebrow">Também apoiamos</span>'+sem.map(function(p){
+      var inner=logo(p)+'<div><strong>'+esc(p.nome)+'</strong>'+(sub(p)?'<span>'+esc(sub(p))+'</span>':'')+'</div>';
+      return p.link?'<a class="also-item" href="'+esc(p.link)+'" target="_blank" rel="noopener">'+inner+'</a>':'<div class="also-item">'+inner+'</div>';
+    }).join('')+'</div>';
+    el.innerHTML=h||'<p class="meta">Em breve, novos projetos.</p>';
+  }
+
+  /* ---------- página do produto ---------- */
+  var dlg=document.getElementById('produto'),box=document.getElementById('dlg-conteudo');
+  function abrir(id){
+    var e=store[id];if(!e)return;
+    var p=e.p,f=fotos(p),titulo,sub,corpo='';
+    if(e.tipo==='cafe'){titulo=p.codigo+' · '+p.regiao;sub='Café por região';corpo=p.notas?'<p><b>Notas:</b> '+esc(p.notas)+'</p>':''}
+    else if(e.tipo==='micro'){
+      titulo=p.nome;sub='Microlote especial'+(p.selo?' · '+p.selo:'');
+      var o=[p.produtor,p.regiao].filter(Boolean).join(' · ');
+      corpo=(o?'<p class="meta">'+esc(o)+'</p>':'')+(p.notas?'<p><b>Notas:</b> '+esc(p.notas)+'</p>':'')+specs(p);
+    }else{titulo=p.nome;sub=p.categoria||'Produto';corpo=tags(p.opcoes)}
+    var vars=lista(p.variantes);
+    var linha=[p.peso,e.tipo==='micro'?p.quantidade:''].filter(Boolean).join(' · ');
+    box.innerHTML='<button class="close" type="button" aria-label="Fechar">×</button>'+
+      (p.ilustracao?'<img class="dlg-banner" src="'+src(p.ilustracao)+'" alt="">':'')+
+      '<div class="dlg" style="--c:'+esc(p.cor||'')+'">'+
+        '<div class="dlg-media"><div class="dlg-main"><img id="dlg-img" src="'+(f.length?src(f[0]):'img/ilustracao-n35.jpg')+'" alt="'+esc(titulo)+'"></div>'+
+          (f.length>1?'<div class="thumbs">'+f.map(function(x,i){return '<button type="button" data-src="'+src(x)+'" aria-label="Foto '+(i+1)+'" aria-current="'+(i===0)+'"><img src="'+src(x)+'" alt=""></button>'}).join('')+'</div>':'')+
+        '</div>'+
+        '<div class="dlg-body"><p class="eyebrow">'+esc(sub)+'</p><h2 id="dlg-titulo">'+esc(titulo)+'</h2>'+
+          (p.descricao?'<p class="lead">'+esc(p.descricao)+'</p>':'')+corpo+
+          ((linha||p.preco)?'<div class="lot-foot"><span class="meta">'+esc(linha)+'</span>'+(p.preco?'<span class="price">'+esc(p.preco)+'</span>':'')+'</div>':'')+
+          (vars.length?'<div class="choose"><span class="eyebrow">Escolha</span><div class="chips" id="dlg-vars">'+vars.map(function(v,i){return '<button type="button" aria-pressed="'+(i===0)+'">'+esc(v)+'</button>'}).join('')+'</div></div>':'')+
+          '<div class="buy-row"><div class="qty" aria-label="Quantidade"><button type="button" data-step="-1" aria-label="Diminuir">−</button><output id="dlg-q">1</output><button type="button" data-step="1" aria-label="Aumentar">+</button></div>'+
+          '<button class="btn" type="button" id="dlg-add">Adicionar ao pedido</button></div>'+
+          '<p class="hint">Adicione outros cafés e produtos e envie tudo junto pelo WhatsApp.</p>'+
+          (p.aviso?'<p class="warn">'+esc(p.aviso)+'</p>':'')+
+        '</div></div>';
+    var q=1,out=box.querySelector('#dlg-q');
+    box.querySelectorAll('[data-step]').forEach(function(b){b.addEventListener('click',function(){q=Math.max(1,q+Number(b.dataset.step));out.textContent=q})});
+    var vb=box.querySelector('#dlg-vars');
+    if(vb) vb.addEventListener('click',function(ev){var b=ev.target.closest('button');if(!b)return;vb.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))})});
+    box.querySelector('#dlg-add').addEventListener('click',function(){
+      var sel=vb?vb.querySelector('[aria-pressed="true"]'):null;
+      adicionar(e,sel?sel.textContent:'',q);fechar();
+    });
+    if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
+    dlg.scrollTop=0;
+  }
+  function fechar(){if(dlg.open){if(dlg.close)dlg.close();else dlg.removeAttribute('open')}}
+  dlg.addEventListener('click',function(ev){if(ev.target===dlg)fechar()});
+
+  var tt;
+  function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('show')},2600)}
+
+  document.addEventListener('click',function(ev){
+    var ob=ev.target.closest('[data-open-bag]');
+    if(ob){ev.preventDefault();abrirSacola();return}
+    var ad=ev.target.closest('[data-add]');
+    if(ad){var e=store[ad.dataset.add];if(!e)return;
+      if(lista(e.p.variantes).length){abrir(ad.dataset.add);return}
+      adicionar(e,'',1);ad.classList.add('done');ad.textContent='✓ Adicionado';setTimeout(function(){ad.classList.remove('done');ad.textContent='+ Adicionar'},1600);return}
+    var c=ev.target.closest('[data-id]');if(c){abrir(c.getAttribute('data-id'));return}
+    var th=ev.target.closest('.thumbs button');
+    if(th){var im=document.getElementById('dlg-img');if(im)im.src=th.getAttribute('data-src');th.parentNode.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-current',String(b===th))});return}
+    if(ev.target.closest('.close'))fechar();
+  });
+
+  atualizar();
+  Promise.all([load('cafes'),load('microlotes'),load('outros'),load('social'),load('produtores')]).then(function(r){
+    renderCafes(r[0]);stage(r[0]);renderMicro(r[1]);renderOutros(r[2]);renderSocial(r[3]);renderProdutores(r[4]);
+  });
+})();
+</script>
+
+</body>
+</html>

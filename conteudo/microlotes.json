@@ -1,0 +1,19 @@
+[
+  {
+    "selo": "Exemplo",
+    "nome": "Nome do microlote",
+    "produtor": "Produtor e fazenda",
+    "regiao": "Região de origem",
+    "variedade": "Ex.: Catuaí Amarelo",
+    "processo": "Ex.: Natural",
+    "altitude": "Ex.: 1.250 m",
+    "pontuacao": "Ex.: 87",
+    "notas": "Ex.: rapadura, laranja e cacau",
+    "descricao": "Este é um card de exemplo. Edite no painel com os dados do microlote da vez, troque a foto e marque como disponível.",
+    "peso": "250 g",
+    "preco": "",
+    "quantidade": "Ex.: 30 pacotes",
+    "fotos": [],
+    "disponivel": true
+  }
+]
