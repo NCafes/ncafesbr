@@ -124,7 +124,7 @@ section{padding-block:88px}
 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .code{font-family:var(--display);font-weight:800;font-size:1.6rem;line-height:1}
 .card h3{font-size:1.2rem;line-height:1.15}
-.card .notes{font-size:.92rem}
+.card .notes{font-size:.9rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card .link{margin-top:auto}
 
 /* microlotes */
@@ -571,7 +571,6 @@ dialog.sheet[open]{display:flex}
       var id='cafe-'+i,e={tipo:'cafe',p:p};store[id]=e;
       return '<div class="card"><button class="card-open" type="button" data-id="'+id+'" aria-label="Ver '+esc(p.codigo+' '+p.regiao)+'">'+
         photo(p,'Embalagem do café '+p.codigo)+'<span class="code">'+esc(p.codigo)+'</span><h3>'+esc(p.regiao)+'</h3>'+
-        (p.notas?'<span class="notes">'+esc(p.notas)+'</span>':'')+
         '<span class="meta">'+esc([p.peso,p.preco].filter(Boolean).join(' · '))+'</span></button>'+foot(id,e)+'</div>';
     }).join('');
   }
@@ -650,7 +649,7 @@ dialog.sheet[open]{display:flex}
   function abrir(id){
     var e=store[id];if(!e)return;
     var p=e.p,f=fotos(p),titulo,sub,corpo='';
-    if(e.tipo==='cafe'){titulo=p.codigo+' · '+p.regiao;sub='Café por região';corpo=p.notas?'<p><b>Notas:</b> '+esc(p.notas)+'</p>':''}
+    if(e.tipo==='cafe'){titulo=p.codigo+' · '+p.regiao;sub='Café por região';corpo=''}
     else if(e.tipo==='micro'){
       titulo=p.nome;sub='Microlote especial'+(p.selo?' · '+p.selo:'');
       var o=[p.produtor,p.regiao].filter(Boolean).join(' · ');
@@ -667,10 +666,10 @@ dialog.sheet[open]{display:flex}
         '<div class="dlg-body"><p class="eyebrow">'+esc(sub)+'</p><h2 id="dlg-titulo">'+esc(titulo)+'</h2>'+
           (p.descricao?'<p class="lead">'+esc(p.descricao)+'</p>':'')+corpo+
           ((linha||p.preco)?'<div class="lot-foot"><span class="meta">'+esc(linha)+'</span>'+(p.preco?'<span class="price">'+esc(p.preco)+'</span>':'')+'</div>':'')+
-          (vars.length?'<div class="choose"><span class="eyebrow">Escolha</span><div class="chips" id="dlg-vars">'+vars.map(function(v,i){return '<button type="button" aria-pressed="'+(i===0)+'">'+esc(v)+'</button>'}).join('')+'</div></div>':'')+
+          (vars.length?'<div class="choose"><span class="eyebrow">'+(e.tipo==='outro'?'Escolha':'Como você quer o café?')+'</span><div class="chips" id="dlg-vars">'+vars.map(function(v,i){return '<button type="button" aria-pressed="'+(i===0)+'">'+esc(v)+'</button>'}).join('')+'</div></div>':'')+
           '<div class="buy-row"><div class="qty" aria-label="Quantidade"><button type="button" data-step="-1" aria-label="Diminuir">−</button><output id="dlg-q">1</output><button type="button" data-step="1" aria-label="Aumentar">+</button></div>'+
           '<button class="btn" type="button" id="dlg-add">Adicionar ao pedido</button></div>'+
-          '<p class="hint">Adicione outros cafés e produtos e envie tudo junto pelo WhatsApp.</p>'+
+          '<p class="hint">'+(vars.length&&e.tipo!=='outro'?'Se for moído, conte nas observações do pedido como você prepara (coado, prensa, espresso). ':'')+'Adicione outros itens e envie tudo junto pelo WhatsApp.</p>'+
           (p.aviso?'<p class="warn">'+esc(p.aviso)+'</p>':'')+
         '</div></div>';
     var q=1,out=box.querySelector('#dlg-q');

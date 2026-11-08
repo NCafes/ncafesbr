@@ -13,6 +13,10 @@
     "peso": "250 g",
     "preco": "",
     "quantidade": "Ex.: 30 pacotes",
+    "variantes": [
+      "Em grãos",
+      "Moído"
+    ],
     "fotos": [],
     "disponivel": true
   }

@@ -3,12 +3,16 @@
     "codigo": "N11",
     "regiao": "Alta Mogiana e Interior Paulista",
     "descricao": "Região de tradição centenária no café, no nordeste de São Paulo, com Indicação Geográfica reconhecida.",
-    "notas": "",
     "peso": "250 g",
     "preco": "",
+    "variantes": [
+      "Em grãos",
+      "Moído"
+    ],
     "cor": "#f28a2e",
     "fotos": [
-      "/img/n11.jpg"
+      "/img/n11.jpg",
+      "/img/n11-produtor.jpg"
     ],
     "ilustracao": "/img/ilustracao-n11.jpg",
     "disponivel": true
@@ -17,12 +21,16 @@
     "codigo": "N28",
     "regiao": "Montanhas Capixabas",
     "descricao": "Arábicas de montanha do Espírito Santo, cultivados em pequenas propriedades familiares.",
-    "notas": "",
     "peso": "250 g",
     "preco": "",
+    "variantes": [
+      "Em grãos",
+      "Moído"
+    ],
     "cor": "#ec8fa4",
     "fotos": [
-      "/img/n28.jpg"
+      "/img/n28.jpg",
+      "/img/n28-produtor.jpg"
     ],
     "ilustracao": "/img/ilustracao-n28.jpg",
     "disponivel": true
@@ -31,12 +39,16 @@
     "codigo": "N34",
     "regiao": "Cerrado Mineiro e Centro-Oeste",
     "descricao": "Primeira Denominação de Origem de café do Brasil, com estações bem definidas e colheita uniforme.",
-    "notas": "",
     "peso": "250 g",
     "preco": "",
+    "variantes": [
+      "Em grãos",
+      "Moído"
+    ],
     "cor": "#f5c02c",
     "fotos": [
-      "/img/n34.jpg"
+      "/img/n34.jpg",
+      "/img/n34-produtor.jpg"
     ],
     "ilustracao": "/img/ilustracao-n34.jpg",
     "disponivel": true
@@ -45,12 +57,16 @@
     "codigo": "N35",
     "regiao": "Mantiqueira de Minas",
     "descricao": "Serra da Mantiqueira, no sul de Minas: altitude elevada e clima ameno, de onde saem alguns dos cafés mais premiados do país.",
-    "notas": "",
     "peso": "250 g",
     "preco": "",
+    "variantes": [
+      "Em grãos",
+      "Moído"
+    ],
     "cor": "#e85a50",
     "fotos": [
-      "/img/n35.jpg"
+      "/img/n35.jpg",
+      "/img/n35-produtor.jpg"
     ],
     "ilustracao": "/img/ilustracao-n35.jpg",
     "disponivel": true
@@ -59,12 +75,16 @@
     "codigo": "N77",
     "regiao": "Chapada Diamantina",
     "descricao": "Cafés de altitude do interior da Bahia, região que vem se destacando nos concursos nacionais de qualidade.",
-    "notas": "",
     "peso": "250 g",
     "preco": "",
+    "variantes": [
+      "Em grãos",
+      "Moído"
+    ],
     "cor": "#7db8e3",
     "fotos": [
-      "/img/n77.jpg"
+      "/img/n77.jpg",
+      "/img/n77-produtor.jpg"
     ],
     "ilustracao": "/img/ilustracao-n77.jpg",
     "disponivel": true

@@ -12,15 +12,20 @@ As fotos ficam na pasta `img/`.
 
 ## Jeito recomendado: painel de edição (sem mexer em código)
 
-Configuração única (uns 15 minutos):
+Configuração única (uns 20 minutos):
 
 1. Crie uma conta grátis no GitHub (github.com) e um repositório chamado `ncafes-site`.
-2. Envie para o repositório todos os arquivos desta pasta (botão "Add file" → "Upload files"). Inclua o arquivo `.pages.yml`.
-3. No Cloudflare: Workers & Pages → Create → Pages → "Connect to Git" → escolha o repositório `ncafes-site`.
+2. Envie para o repositório todos os arquivos desta pasta (botão "Add file" → "Upload files").
+3. Crie o arquivo de configuração do painel. Ele precisa se chamar `.pages.yml` (com ponto no início).
+   Arquivos que começam com ponto ficam ocultos no Mac e costumam não subir. Por isso:
+   - No GitHub, abra o arquivo `pages.yml` (sem ponto) que você acabou de enviar.
+   - Clique no lápis (Edit). No campo do nome, no topo, acrescente um ponto antes: `.pages.yml`.
+   - Clique em "Commit changes". Pronto: o arquivo foi renomeado.
+4. No Cloudflare: Workers & Pages → Create application → Pages → "Connect to Git" → escolha `ncafes-site`.
    - Framework preset: None
    - Build command: deixe vazio
    - Build output directory: `/`
-4. Entre em app.pagescms.org, faça login com o GitHub e abra o repositório `ncafes-site`.
+5. Entre em app.pagescms.org, faça login com o GitHub, instale o app no repositório `ncafes-site` e abra o repositório.
 
 No dia a dia:
 

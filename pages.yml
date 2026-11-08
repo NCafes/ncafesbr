@@ -1,0 +1,252 @@
+# Painel de edição do site N Cafés (Pages CMS - https://pagescms.org)
+# Cada item abaixo vira uma área de edição no painel.
+
+media:
+  input: img
+  output: /img
+  categories: [image]
+
+content:
+  - name: cafes
+    label: Cafés por região
+    type: file
+    path: conteudo/cafes.json
+    format: json
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{codigo} · {regiao}"
+    fields:
+      - name: codigo
+        label: Código
+        type: string
+        required: true
+        description: "Como aparece na embalagem. Ex.: N35"
+      - name: regiao
+        label: Região
+        type: string
+        required: true
+      - name: descricao
+        label: Descrição
+        type: text
+      - name: peso
+        label: Peso
+        type: string
+        default: "250 g"
+      - name: preco
+        label: Preço
+        type: string
+        description: "Ex.: R$ 59,90. Deixe vazio para não mostrar preço."
+      - name: variantes
+        label: Opções de moagem
+        type: string
+        list: true
+        description: "Opções que a pessoa escolhe ao pedir. Ex.: Em grãos, Moído"
+      - name: cor
+        label: Cor do card
+        type: string
+        description: "Cor em hexadecimal. Ex.: #e85a50"
+      - name: fotos
+        label: Fotos
+        type: image
+        description: "A primeira foto (embalagem) aparece no card. A segunda (ficha com sensorial e produtor) aparece na página do café."
+        options:
+          multiple: true
+      - name: ilustracao
+        label: Ilustração da região
+        type: image
+        description: "Faixa horizontal que aparece no topo da página do café e no destaque do início do site."
+      - name: disponivel
+        label: Disponível
+        type: boolean
+        default: true
+        description: "Desmarque para tirar do site sem apagar."
+
+  - name: microlotes
+    label: Microlotes especiais
+    type: file
+    path: conteudo/microlotes.json
+    format: json
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{nome}"
+    fields:
+      - name: selo
+        label: Selo
+        type: string
+        description: "Etiqueta curta no card. Ex.: Edição limitada, Novo, Últimas unidades"
+      - name: nome
+        label: Nome do microlote
+        type: string
+        required: true
+      - name: produtor
+        label: Produtor e fazenda
+        type: string
+      - name: regiao
+        label: Região
+        type: string
+      - name: variedade
+        label: Variedade
+        type: string
+      - name: processo
+        label: Processo
+        type: string
+      - name: altitude
+        label: Altitude
+        type: string
+      - name: pontuacao
+        label: Pontuação SCA
+        type: string
+      - name: notas
+        label: Notas sensoriais
+        type: string
+      - name: descricao
+        label: Descrição
+        type: text
+      - name: peso
+        label: Peso
+        type: string
+        default: "250 g"
+      - name: preco
+        label: Preço
+        type: string
+      - name: quantidade
+        label: Quantidade do lote
+        type: string
+        description: "Ex.: 30 pacotes"
+      - name: variantes
+        label: Opções de moagem
+        type: string
+        list: true
+        description: "Opções que a pessoa escolhe ao pedir. Ex.: Em grãos, Moído"
+      - name: fotos
+        label: Fotos
+        type: image
+        options:
+          multiple: true
+      - name: disponivel
+        label: Disponível
+        type: boolean
+        default: true
+
+  - name: outros
+    label: Drip, boné e outros produtos
+    type: file
+    path: conteudo/outros.json
+    format: json
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{nome}"
+    fields:
+      - name: nome
+        label: Nome
+        type: string
+        required: true
+      - name: categoria
+        label: Categoria
+        type: string
+        description: "Linha pequena acima do nome. Ex.: Acessório"
+      - name: descricao
+        label: Descrição
+        type: text
+      - name: opcoes
+        label: Detalhes
+        type: string
+        list: true
+        description: "Informações curtas, uma por linha. Ex.: Lata 473 ml"
+      - name: variantes
+        label: Variações para escolher no pedido
+        type: string
+        list: true
+        description: "Uma por linha. Ex.: Sachê avulso, Caixa com 10 sachês. Deixe vazio se não houver."
+      - name: preco
+        label: Preço
+        type: string
+      - name: aviso
+        label: Aviso
+        type: string
+        description: "Texto pequeno de rodapé do produto. Ex.: aviso de +18"
+      - name: fotos
+        label: Fotos
+        type: image
+        options:
+          multiple: true
+      - name: disponivel
+        label: Disponível
+        type: boolean
+        default: true
+
+  - name: social
+    label: Café Social
+    type: file
+    path: conteudo/social.json
+    format: json
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{nome}"
+    fields:
+      - name: nome
+        label: Nome do projeto
+        type: string
+        required: true
+      - name: local
+        label: Local
+        type: string
+        description: "Ex.: Grajaú, São Paulo"
+      - name: ano
+        label: Ano
+        type: string
+      - name: acao
+        label: Como ajudamos
+        type: string
+        description: "Ex.: Café N27 Pagode da 27, doação, evento"
+      - name: descricao
+        label: Descrição
+        type: text
+      - name: logo
+        label: Logo do projeto
+        type: image
+      - name: fotos
+        label: Fotos
+        type: image
+        description: "Projetos sem foto aparecem na faixa 'Também apoiamos', só com o logo."
+        options:
+          multiple: true
+      - name: link
+        label: Link do projeto
+        type: string
+        description: "Instagram ou site do projeto. Deixe vazio se não tiver."
+      - name: disponivel
+        label: Mostrar no site
+        type: boolean
+        default: true
+
+  - name: produtores
+    label: Fotos dos produtores
+    type: file
+    path: conteudo/produtores.json
+    format: json
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{legenda}"
+    fields:
+      - name: foto
+        label: Foto
+        type: image
+        required: true
+      - name: legenda
+        label: Legenda
+        type: string
+        description: "Nome dos produtores e da fazenda. Ex.: Tatiana, Juliana e Poliana · Sítio 3 Anas"
+      - name: local
+        label: Local
+        type: string
+        description: "Ex.: Espírito Santo"
+      - name: disponivel
+        label: Mostrar no site
+        type: boolean
+        default: true
