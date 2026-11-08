@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>N Cafés Especiais</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="N Cafés Especiais: cafés de cinco regiões do Brasil, microlotes, drip coffee e torra artesanal. Peça pelo WhatsApp +55 11 98912-5041.">
+<meta name="description" content="N Cafés Especiais: cafés de cinco regiões do Brasil, microlotes, drip coffee e torra artesanal. Peça pelo WhatsApp.">
 <meta property="og:title" content="N Cafés Especiais">
-<meta property="og:description" content="Cinco origens, microlotes especiais e torra artesanal. Peça pelo WhatsApp +55 11 98912-5041.">
+<meta property="og:description" content="Cinco origens, microlotes especiais e torra artesanal. Peça pelo WhatsApp.">
 <meta property="og:image" content="img/ilustracao-n34.jpg">
 <link rel="icon" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -91,7 +91,7 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:co
 .dots{position:absolute;right:var(--gut-r);bottom:20px;display:flex;gap:6px}
 .dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.55);cursor:pointer}
 .dots button[aria-current="true"]{background:#fff;width:22px;border-radius:5px}
-@media (max-width:700px){.stage{aspect-ratio:4/3;max-height:none}.stage img{object-position:50% 50%}}
+@media (max-width:700px){.stage{aspect-ratio:16/9;max-height:none}.stage img{object-position:50% 50%}.stage-label{bottom:10px;font-size:.8rem}.dots{bottom:14px}}
 
 .hero{padding-block:56px 72px;display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:end}
 .hero h1{font-size:clamp(2.5rem,6vw,5.1rem)}
@@ -99,7 +99,7 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:co
 .hero-side{display:grid;gap:24px;min-width:0}
 .hero-side p{color:var(--muted);font-size:1.08rem;max-width:42ch}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
-@media (max-width:860px){.hero{grid-template-columns:1fr;gap:24px;padding-block:36px 56px}}
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:18px;padding-block:28px 40px}.hero h1{font-size:clamp(2.1rem,9vw,2.6rem)}.hero-side{gap:18px}.hero-side p{font-size:1rem}}
 
 section{padding-block:88px}
 .alt{background:var(--soft)}
@@ -179,6 +179,9 @@ section{padding-block:88px}
 @media (max-width:600px){.track figure{flex-basis:84%}.car-nav{display:none}}
 
 /* café social */
+.sub-h{font-size:clamp(1.6rem,3vw,2.2rem);margin-top:6px}
+.gift{display:flex;align-items:center;gap:10px;font-size:.95rem;cursor:pointer}
+.gift input{width:18px;height:18px;accent-color:var(--ink)}
 .proj{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;min-width:0}
 .proj-photo{margin:0;aspect-ratio:1/1;background:var(--soft);overflow:hidden}
 .proj-photo img{width:100%;height:100%;object-fit:cover}
@@ -237,14 +240,24 @@ dialog::backdrop{background:rgba(10,10,10,.62);backdrop-filter:blur(3px)}
 
 /* cards com botão de adicionar */
 .card-open{display:flex;flex-direction:column;gap:12px;text-align:left;background:none;border:0;padding:0;cursor:pointer;width:100%;min-width:0}
-.card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:4px}
+.card-foot{display:flex;margin-top:auto;padding-top:4px}
+.card-foot .add{width:100%;justify-content:center;padding:.6em 1em}
+.code-row{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.code-row .price{font-size:1.15rem;font-weight:700}
+.fresh{display:flex;flex-wrap:wrap;gap:8px 10px;margin:-14px 0 28px}
+.fresh span{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:.92rem;padding:.4em .95em;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+.fresh span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.sheet-list .lp{font-family:var(--display);font-weight:700;font-size:.95rem;display:block;margin-top:2px}
+.subtotal{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:var(--display)}
+.subtotal b{font-size:1.4rem;font-weight:800;font-variant-numeric:tabular-nums}
+.subtotal span{color:var(--muted);font-size:.9rem}
 .card-foot .link{border:0;background:none;padding:0 0 2px;border-bottom:1.5px solid currentColor;cursor:pointer}
 .add{display:inline-flex;align-items:center;gap:6px;font-family:var(--display);font-weight:700;font-size:.9rem;padding:.45em .95em;border-radius:999px;border:1.5px solid var(--ink);background:transparent;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap}
 .add:hover,.add.done{background:var(--ink);color:var(--bg)}
 .lot-photo{display:block;padding:0;border:0;background:none;cursor:pointer;min-width:0}
 .lot-photo .photo{height:100%}
 .lot .lot-foot .acts{display:flex;align-items:center;gap:14px}
-@media (max-width:420px){.card-foot{flex-wrap:wrap}.card-foot .link{display:none}.add{width:100%;justify-content:center}}
+
 
 /* escolha no produto */
 .choose{display:grid;gap:8px}
@@ -326,7 +339,7 @@ dialog.sheet[open]{display:flex}
   <div class="wrap hero">
     <h1>Cinco origens.<br><b>Um café para cada história.</b></h1>
     <div class="hero-side">
-      <p>Produtores, torradores e apaixonados por café. Torramos em pequenos lotes os cafés da nossa lavoura e de parceiros nas principais regiões do Brasil.</p>
+      <p>Produtores, torradores e apaixonados por café. Torramos toda semana, em pequenos lotes, cafés da nossa lavoura e de parceiros das principais regiões do Brasil. Seu café chega sempre fresco.</p>
       <div class="actions">
         <a class="btn" href="#cafes">Conhecer os cafés</a>
         <a class="btn ghost" href="https://wa.me/5511989125041?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido." target="_blank" rel="noopener" data-open-bag><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>Faça seu pedido</a>
@@ -338,8 +351,9 @@ dialog.sheet[open]{display:flex}
     <div class="wrap">
       <div class="sec-head">
         <div><p class="eyebrow">Cafés por região</p><h2>Escolha sua origem</h2></div>
-        <p>Cada embalagem tem a cor e a ilustração da sua região. Adicione quantos cafés e produtos quiser e envie tudo num pedido só pelo WhatsApp.</p>
+        <p>Adicione quantos cafés quiser, em grãos ou moídos, e envie tudo num pedido só pelo WhatsApp.</p>
       </div>
+      <div class="fresh"><span>Torra semanal</span><span>Sempre fresco</span><span>Grãos ou moído na hora</span></div>
       <div class="rail cols-5" id="lista-cafes"><p class="meta">Carregando cafés…</p></div>
     </div>
   </section>
@@ -369,8 +383,7 @@ dialog.sheet[open]{display:flex}
       <div><p class="eyebrow">Quem somos</p><h2 class="big">Cada xícara conta uma história</h2></div>
       <div class="about-text">
         <p>Somos a N Cafés Especiais: produtores, torradores e, acima de tudo, apaixonados por café.</p>
-        <p>Além da nossa própria lavoura, percorremos as principais regiões produtoras do Brasil em busca de parceiros que cultivam cafés especiais com cuidado e respeito, valorizando cada produtor, suas origens e o jeito único do seu trabalho.</p>
-        <p>Com torra artesanal e curadoria cuidadosa, levamos até você cafés com personalidade própria e um sensorial diferente em cada origem. Nosso compromisso é com a qualidade, com a diversidade dos cafés brasileiros e com as histórias de quem dedica a vida a cultivar.</p>
+        <p>Além da nossa lavoura, percorremos as principais regiões produtoras do Brasil atrás de pequenos produtores parceiros. Torramos toda semana, em pequenos lotes, para que cada café chegue fresco e com a personalidade da sua origem.</p>
       </div>
       <div class="about-photos">
         <img src="img/equipe-coado.jpg" alt="Integrante da N Cafés passa um café coado vestindo a camiseta da marca" loading="lazy">
@@ -382,36 +395,33 @@ dialog.sheet[open]{display:flex}
   <section id="produtores" class="alt">
     <div class="wrap">
       <div class="sec-head">
-        <div><p class="eyebrow">Parceiros produtores</p><h2>O coração da N Cafés</h2></div>
+        <div><p class="eyebrow">Por trás do café</p><h2>Quem planta, quem apoiamos</h2></div>
         <div class="car-nav" aria-label="Navegar pelas fotos">
           <button type="button" data-dir="-1" aria-label="Fotos anteriores"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
           <button type="button" data-dir="1" aria-label="Próximas fotos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
         </div>
       </div>
-      <p class="meta" style="max-width:60ch;margin:-14px 0 28px">Pequenos produtores, espalhados pelo Brasil, que viraram amigos. Eles cuidam de cada etapa para que o café chegue com identidade e excelência.</p>
+      <p class="meta" style="max-width:60ch;margin:-14px 0 28px"><b>Parceiros produtores.</b> Pequenos produtores, espalhados pelo Brasil, que viraram amigos. Eles cuidam de cada etapa para que o café chegue com identidade e excelência.</p>
     </div>
     <div class="track" id="lista-produtores" tabindex="0" aria-label="Fotos dos produtores parceiros"></div>
-  </section>
-
-  <section id="social">
-    <div class="wrap">
+  <div class="wrap" id="social" style="margin-top:72px">
       <div class="sec-head">
-        <div><p class="eyebrow">Café Social</p><h2>Histórias que vão além da xícara</h2></div>
+        <div><p class="eyebrow">Café Social</p><h3 class="sub-h">Histórias que vão além da xícara</h3></div>
         <p>Por meio do café, damos voz e visibilidade a projetos que geram transformação, principalmente na educação de crianças e adolescentes. Estas são algumas das iniciativas que já apoiamos.</p>
       </div>
       <div id="lista-social"><p class="meta">Carregando projetos…</p></div>
     </div>
-  </section>
+    </section>
+
 
   <div class="cta-band">
     <div class="wrap cta-in">
       <div>
         <h2>Prove antes de levar</h2>
-        <p>Estamos em feiras pela cidade com as origens para degustar. A agenda e os novos microlotes saem primeiro no Instagram. Pedidos pelo WhatsApp <b>+55 11 98912-5041</b>.</p>
+        <p>Estamos nas feiras de economia criativa com nossas origens para degustar. Siga a gente no Instagram para saber a próxima feira e os novos microlotes em primeira mão.</p>
       </div>
       <div class="actions">
-        <a class="btn" href="https://wa.me/5511989125041?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido." target="_blank" rel="noopener" data-open-bag><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>Faça seu pedido</a>
-        <a class="btn ghost" href="https://www.instagram.com/ncafesbr/" target="_blank" rel="noopener">Seguir @ncafesbr</a>
+        <a class="btn" href="https://www.instagram.com/ncafesbr/" target="_blank" rel="noopener">Seguir @ncafesbr</a>
       </div>
     </div>
   </div>
@@ -425,7 +435,7 @@ dialog.sheet[open]{display:flex}
       <a href="#microlotes">Microlotes</a>
       <a href="#social">Café Social</a>
       <a href="https://www.instagram.com/ncafesbr/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://wa.me/5511989125041?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido." target="_blank" rel="noopener">WhatsApp +55 11 98912-5041</a>
+      <a href="https://wa.me/5511989125041?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido." target="_blank" rel="noopener">WhatsApp</a>
     </nav>
   </div>
 </footer>
@@ -470,19 +480,28 @@ dialog.sheet[open]{display:flex}
   /* ---------- pedido (sacola) ---------- */
   var KEY='ncafes-pedido', cart=[];
   try{cart=JSON.parse(localStorage.getItem(KEY)||'[]');if(!Array.isArray(cart))cart=[]}catch(e){cart=[]}
+  function valor(p){var m=String(p||'').replace(/\./g,'').match(/(\d+)(,(\d{1,2}))?/);return m?Number(m[1])+(m[3]?Number((m[3]+'0').slice(0,2))/100:0):0}
+  function brl(n){return 'R$ '+n.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
+  function nomeVar(v){return String(v||'').split(/\s*[·|–-]\s*R\$/)[0].trim()}
+  function precoItem(p,v){return (v&&/R\$/.test(v)?valor(v.slice(v.indexOf('R$'))):0)||valor(p.preco)}
+  function precoCard(p){var vs=lista(p.variantes).filter(function(v){return /R\$/.test(v)}).map(function(v){return valor(v.slice(v.indexOf('R$')))});if(vs.length)return (vs.length>1?'a partir de ':'')+brl(Math.min.apply(null,vs));return p.preco||''}
+  function subtotal(){return cart.reduce(function(n,i){return n+(i.pr||0)*i.q},0)}
   function salvar(){try{localStorage.setItem(KEY,JSON.stringify(cart))}catch(e){}}
   function total(){return cart.reduce(function(n,i){return n+i.q},0)}
   function adicionar(e,variante,q){
+    var pr=precoItem(e.p,variante);variante=nomeVar(variante);
     var k=nomeItem(e)+(variante?' | '+variante:'');
     var f=fotos(e.p);
     var it=cart.filter(function(i){return i.k===k})[0];
-    if(it) it.q+=q; else cart.push({k:k,nome:nomeItem(e),v:variante||'',q:q,img:f[0]||'',cor:e.p.cor||''});
+    if(it) it.q+=q; else cart.push({k:k,nome:nomeItem(e),v:variante||'',q:q,img:f[0]||'',cor:e.p.cor||'',pr:pr});
     salvar();atualizar();
     toast(q+'x '+nomeItem(e)+' no pedido');
   }
   function msg(){
     var obs=(document.getElementById('obs')||{}).value||'';
-    var t='Olá! Quero fazer este pedido:\n\n'+cart.map(function(i){return '• '+i.q+'x '+i.nome+(i.v?' – '+i.v:'')}).join('\n');
+    var t='Olá! Quero fazer este pedido:\n\n'+cart.map(function(i){return '• '+i.q+'x '+i.nome+(i.v?' – '+i.v:'')+(i.pr?' – '+brl(i.pr*i.q):'')}).join('\n');
+    var st=subtotal();if(st)t+='\n\nSubtotal: '+brl(st)+' (frete a combinar)';
+    if(presente) t+='\n\nÉ para presente.';
     if(obs.trim()) t+='\n\nObservações: '+obs.trim();
     return t;
   }
@@ -494,9 +513,9 @@ dialog.sheet[open]{display:flex}
     fb.firstChild.textContent=n===1?'Ver seu pedido · 1 item ':'Ver seu pedido · '+n+' itens ';
     if(sacola.open) desenharSacola();
   }
-  var sacola=document.getElementById('sacola'),corpo=document.getElementById('sacola-corpo'),obsTxt='';
+  var sacola=document.getElementById('sacola'),corpo=document.getElementById('sacola-corpo'),obsTxt='',presente=false;
   function desenharSacola(){
-    var o=document.getElementById('obs');if(o)obsTxt=o.value;
+    var o=document.getElementById('obs');if(o)obsTxt=o.value;var pg=document.getElementById('presente');if(pg)presente=pg.checked;
     if(!cart.length){
       corpo.innerHTML='<div class="sheet-empty"><p>Seu pedido está vazio. Escolha seus cafés e produtos no site, ou fale direto com a gente.</p>'+
         '<button class="btn" type="button" data-close-bag data-go="#cafes">Ver os cafés</button>'+
@@ -505,16 +524,16 @@ dialog.sheet[open]{display:flex}
     }
     corpo.innerHTML='<ul class="sheet-list">'+cart.map(function(i,ix){
       return '<li>'+(i.img?'<img src="'+src(i.img)+'" alt="" style="--c:'+esc(i.cor)+'">':'<span class="ph" style="--c:'+esc(i.cor)+'"></span>')+
-        '<div><strong>'+esc(i.nome)+'</strong>'+(i.v?'<span class="meta">'+esc(i.v)+'</span>':'')+'<button class="rm" type="button" data-rm="'+ix+'">Remover</button></div>'+
+        '<div><strong>'+esc(i.nome)+'</strong>'+(i.v?'<span class="meta">'+esc(i.v)+'</span>':'')+(i.pr?'<span class="lp">'+brl(i.pr*i.q)+'</span>':'')+'<button class="rm" type="button" data-rm="'+ix+'">Remover</button></div>'+
         '<div class="qty sm"><button type="button" data-q="'+ix+'" data-d="-1" aria-label="Diminuir">−</button><output>'+i.q+'</output><button type="button" data-q="'+ix+'" data-d="1" aria-label="Aumentar">+</button></div></li>';
     }).join('')+'</ul>'+
-    '<div class="sheet-foot"><label for="obs">Observações (opcional)</label>'+
-      '<textarea id="obs" placeholder="Ex.: moído para coado, entrega ou retirada, presente">'+esc(obsTxt)+'</textarea>'+
+    '<div class="sheet-foot">'+(subtotal()?'<div class="subtotal"><span>Subtotal · frete a combinar</span><b>'+brl(subtotal())+'</b></div>':'')+'<label class="gift" for="presente"><input type="checkbox" id="presente"'+(presente?' checked':'')+'> É para presente (enviamos com cartão)</label><label for="obs">Observações (opcional)</label>'+
+      '<textarea id="obs" placeholder="Ex.: moído para coado, entrega ou retirada, mensagem do cartão">'+esc(obsTxt)+'</textarea>'+
       '<a class="btn" id="enviar" href="#" target="_blank" rel="noopener">'+WAI+'Enviar pedido pelo WhatsApp</a>'+
-      '<p class="hint">Abre o WhatsApp da N Cafés com o pedido já escrito. A gente responde com valores, pagamento e entrega.</p></div>';
+      '<p class="hint">Abre o WhatsApp da N Cafés com o pedido já escrito. A gente confirma o frete, a forma de pagamento e a entrega. Torramos toda semana para seu café chegar fresco.</p></div>';
     var env=document.getElementById('enviar');
     function upd(){env.href=waLink(msg())}
-    upd();document.getElementById('obs').addEventListener('input',upd);
+    upd();document.getElementById('obs').addEventListener('input',upd);document.getElementById('presente').addEventListener('change',function(){presente=this.checked;upd()});
   }
   function abrirSacola(){desenharSacola();if(sacola.showModal)sacola.showModal();else sacola.setAttribute('open','');atualizar()}
   function fecharSacola(){if(sacola.open){if(sacola.close)sacola.close();else sacola.removeAttribute('open')}atualizar()}
@@ -561,7 +580,7 @@ dialog.sheet[open]{display:flex}
 
   /* ---------- listas ---------- */
   function foot(id,e){
-    return '<div class="card-foot"><button class="link" type="button" data-id="'+id+'">Ver detalhes</button>'+
+    return '<div class="card-foot">'+
       '<button class="add" type="button" data-add="'+id+'" aria-label="Adicionar '+esc(nomeItem(e))+' ao pedido">+ Adicionar</button></div>';
   }
   function renderCafes(l){
@@ -570,8 +589,9 @@ dialog.sheet[open]{display:flex}
     el.innerHTML=ativos(l).map(function(p,i){
       var id='cafe-'+i,e={tipo:'cafe',p:p};store[id]=e;
       return '<div class="card"><button class="card-open" type="button" data-id="'+id+'" aria-label="Ver '+esc(p.codigo+' '+p.regiao)+'">'+
-        photo(p,'Embalagem do café '+p.codigo)+'<span class="code">'+esc(p.codigo)+'</span><h3>'+esc(p.regiao)+'</h3>'+
-        '<span class="meta">'+esc([p.peso,p.preco].filter(Boolean).join(' · '))+'</span></button>'+foot(id,e)+'</div>';
+        photo(p,'Embalagem do café '+p.codigo)+'<span class="code-row"><span class="code">'+esc(p.codigo)+'</span>'+(p.preco?'<span class="price">'+esc(p.preco)+'</span>':'')+'</span><h3>'+esc(p.regiao)+'</h3>'+
+        (p.notas?'<span class="notes">'+esc(p.notas)+'</span>':'')+
+        '<span class="meta">'+esc(p.peso||'')+'</span></button>'+foot(id,e)+'</div>';
     }).join('');
   }
   function specs(p){
@@ -603,7 +623,7 @@ dialog.sheet[open]{display:flex}
       return '<div class="card item"><button class="card-open" type="button" data-id="'+id+'" aria-label="Ver '+esc(p.nome)+'">'+photo(p,p.nome)+
         (p.categoria?'<span class="eyebrow">'+esc(p.categoria)+'</span>':'')+'<h3>'+esc(p.nome)+'</h3>'+
         (p.descricao?'<p class="desc">'+esc(p.descricao)+'</p>':'')+tags(p.opcoes)+
-        (p.preco?'<span class="price">'+esc(p.preco)+'</span>':'')+'</button>'+foot(id,e)+'</div>';
+        (precoCard(p)?'<span class="price">'+esc(precoCard(p))+'</span>':'')+'</button>'+foot(id,e)+'</div>';
     }).join('');
   }
   function renderProdutores(l){
@@ -665,11 +685,11 @@ dialog.sheet[open]{display:flex}
         '</div>'+
         '<div class="dlg-body"><p class="eyebrow">'+esc(sub)+'</p><h2 id="dlg-titulo">'+esc(titulo)+'</h2>'+
           (p.descricao?'<p class="lead">'+esc(p.descricao)+'</p>':'')+corpo+
-          ((linha||p.preco)?'<div class="lot-foot"><span class="meta">'+esc(linha)+'</span>'+(p.preco?'<span class="price">'+esc(p.preco)+'</span>':'')+'</div>':'')+
+          ((linha||precoCard(p))?'<div class="lot-foot"><span class="meta">'+esc(linha)+'</span>'+(precoCard(p)?'<span class="price">'+esc(precoCard(p))+'</span>':'')+'</div>':'')+
           (vars.length?'<div class="choose"><span class="eyebrow">'+(e.tipo==='outro'?'Escolha':'Como você quer o café?')+'</span><div class="chips" id="dlg-vars">'+vars.map(function(v,i){return '<button type="button" aria-pressed="'+(i===0)+'">'+esc(v)+'</button>'}).join('')+'</div></div>':'')+
           '<div class="buy-row"><div class="qty" aria-label="Quantidade"><button type="button" data-step="-1" aria-label="Diminuir">−</button><output id="dlg-q">1</output><button type="button" data-step="1" aria-label="Aumentar">+</button></div>'+
           '<button class="btn" type="button" id="dlg-add">Adicionar ao pedido</button></div>'+
-          '<p class="hint">'+(vars.length&&e.tipo!=='outro'?'Se for moído, conte nas observações do pedido como você prepara (coado, prensa, espresso). ':'')+'Adicione outros itens e envie tudo junto pelo WhatsApp.</p>'+
+          '<p class="hint">'+(vars.length&&e.tipo!=='outro'?'Torra semanal, sempre fresco. Se for moído, conte nas observações como você prepara (coado, prensa, espresso). ':'')+'Adicione outros itens e envie tudo junto pelo WhatsApp.</p>'+
           (p.aviso?'<p class="warn">'+esc(p.aviso)+'</p>':'')+
         '</div></div>';
     var q=1,out=box.querySelector('#dlg-q');
