@@ -29,6 +29,10 @@ content:
       - name: descricao
         label: Descrição
         type: text
+      - name: notas
+        label: Notas sensoriais (curtas)
+        type: string
+        description: "Até 3 notas, separadas por ·  Ex.: Chocolate · mel · frutado"
       - name: peso
         label: Peso
         type: string
@@ -36,7 +40,7 @@ content:
       - name: preco
         label: Preço
         type: string
-        description: "Ex.: R$ 59,90. Deixe vazio para não mostrar preço."
+        description: "Escreva assim: R$ 48,00. O site usa esse valor para somar o pedido. Deixe vazio para não mostrar."
       - name: variantes
         label: Opções de moagem
         type: string
@@ -160,7 +164,7 @@ content:
         label: Variações para escolher no pedido
         type: string
         list: true
-        description: "Uma por linha. Ex.: Sachê avulso, Caixa com 10 sachês. Deixe vazio se não houver."
+        description: "Uma por linha. Se cada opção tiver preço próprio, escreva assim: Caixa com 10 sachês · R$ 40,00"
       - name: preco
         label: Preço
         type: string
