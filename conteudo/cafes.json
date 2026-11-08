@@ -3,8 +3,9 @@
     "codigo": "N11",
     "regiao": "Alta Mogiana e Interior Paulista",
     "descricao": "Região de tradição centenária no café, no nordeste de São Paulo, com Indicação Geográfica reconhecida.",
+    "notas": "Chocolate · mel · frutado",
     "peso": "250 g",
-    "preco": "",
+    "preco": "R$ 48,00",
     "variantes": [
       "Em grãos",
       "Moído"
@@ -21,8 +22,9 @@
     "codigo": "N28",
     "regiao": "Montanhas Capixabas",
     "descricao": "Arábicas de montanha do Espírito Santo, cultivados em pequenas propriedades familiares.",
+    "notas": "Caramelo · avelã · especiarias",
     "peso": "250 g",
-    "preco": "",
+    "preco": "R$ 60,00",
     "variantes": [
       "Em grãos",
       "Moído"
@@ -39,8 +41,9 @@
     "codigo": "N34",
     "regiao": "Cerrado Mineiro e Centro-Oeste",
     "descricao": "Primeira Denominação de Origem de café do Brasil, com estações bem definidas e colheita uniforme.",
+    "notas": "Frutado · melaço · laranja",
     "peso": "250 g",
-    "preco": "",
+    "preco": "R$ 55,00",
     "variantes": [
       "Em grãos",
       "Moído"
@@ -57,8 +60,9 @@
     "codigo": "N35",
     "regiao": "Mantiqueira de Minas",
     "descricao": "Serra da Mantiqueira, no sul de Minas: altitude elevada e clima ameno, de onde saem alguns dos cafés mais premiados do país.",
+    "notas": "Chocolate amargo · chá preto · mel",
     "peso": "250 g",
-    "preco": "",
+    "preco": "R$ 48,00",
     "variantes": [
       "Em grãos",
       "Moído"
@@ -75,8 +79,9 @@
     "codigo": "N77",
     "regiao": "Chapada Diamantina",
     "descricao": "Cafés de altitude do interior da Bahia, região que vem se destacando nos concursos nacionais de qualidade.",
+    "notas": "Chocolate · rapadura · laranja",
     "peso": "250 g",
-    "preco": "",
+    "preco": "R$ 55,00",
     "variantes": [
       "Em grãos",
       "Moído"

@@ -5,8 +5,8 @@
     "descricao": "Nosso café especial já moído, num sachê com filtro. Abra, encaixe na xícara e despeje água quente aos poucos. Bom para o escritório, para viagem e para presentear.",
     "opcoes": [],
     "variantes": [
-      "Sachê avulso",
-      "Caixa com 10 sachês"
+      "Sachê avulso · R$ 4,50",
+      "Caixa com 10 sachês · R$ 40,00"
     ],
     "preco": "",
     "aviso": "",
@@ -21,7 +21,7 @@
     "descricao": "Boné preto com aba caramelo, frase bordada na frente e patch lateral com o N.",
     "opcoes": [],
     "variantes": [],
-    "preco": "",
+    "preco": "R$ 69,90",
     "aviso": "",
     "fotos": [
       "/img/bone.jpg"
@@ -37,7 +37,7 @@
       "7,7% vol."
     ],
     "variantes": [],
-    "preco": "",
+    "preco": "R$ 32,00",
     "aviso": "Venda proibida para menores de 18 anos. Beba com moderação.",
     "fotos": [
       "/img/cerveja-cafezal.jpg",
