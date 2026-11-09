@@ -12,10 +12,7 @@ content:
     type: file
     path: conteudo/cafes.json
     format: json
-    list:
-      collapsible:
-        collapsed: true
-        summary: "{codigo} · {regiao}"
+    list: true
     fields:
       - name: codigo
         label: Código
@@ -71,10 +68,7 @@ content:
     type: file
     path: conteudo/microlotes.json
     format: json
-    list:
-      collapsible:
-        collapsed: true
-        summary: "{nome}"
+    list: true
     fields:
       - name: selo
         label: Selo
@@ -140,10 +134,7 @@ content:
     type: file
     path: conteudo/outros.json
     format: json
-    list:
-      collapsible:
-        collapsed: true
-        summary: "{nome}"
+    list: true
     fields:
       - name: nome
         label: Nome
@@ -189,10 +180,7 @@ content:
     type: file
     path: conteudo/social.json
     format: json
-    list:
-      collapsible:
-        collapsed: true
-        summary: "{nome}"
+    list: true
     fields:
       - name: nome
         label: Nome do projeto
@@ -235,10 +223,7 @@ content:
     type: file
     path: conteudo/produtores.json
     format: json
-    list:
-      collapsible:
-        collapsed: true
-        summary: "{legenda}"
+    list: true
     fields:
       - name: foto
         label: Foto
