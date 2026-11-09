@@ -61,10 +61,10 @@ content:
         type: image
         description: "Faixa horizontal que aparece no topo da página do café e no destaque do início do site."
       - name: disponivel
-        label: Disponível
+        label: Disponível para venda (aparece no site)
         type: boolean
         default: true
-        description: "Desmarque para tirar do site sem apagar."
+        description: "Ligado: o produto aparece no site. Desligado: some do site, mas fica salvo aqui para você ligar de novo quando tiver."
 
   - name: microlotes
     label: Microlotes especiais
@@ -130,9 +130,10 @@ content:
         options:
           multiple: true
       - name: disponivel
-        label: Disponível
+        label: Disponível para venda (aparece no site)
         type: boolean
         default: true
+        description: "Ligado: o produto aparece no site. Desligado: some do site, mas fica salvo aqui para você ligar de novo quando tiver."
 
   - name: outros
     label: Drip, boné e outros produtos
@@ -178,9 +179,10 @@ content:
         options:
           multiple: true
       - name: disponivel
-        label: Disponível
+        label: Disponível para venda (aparece no site)
         type: boolean
         default: true
+        description: "Ligado: o produto aparece no site. Desligado: some do site, mas fica salvo aqui para você ligar de novo quando tiver."
 
   - name: social
     label: Café Social

@@ -725,6 +725,9 @@ dialog.sheet[open]{display:flex}
   atualizar();
   Promise.all([load('cafes'),load('microlotes'),load('outros'),load('social'),load('produtores')]).then(function(r){
     renderCafes(r[0]);stage(r[0]);renderMicro(r[1]);renderOutros(r[2]);renderSocial(r[3]);renderProdutores(r[4]);
+    /* tira do pedido salvo os produtos que deixaram de estar disponíveis */
+    var ok={};Object.keys(store).forEach(function(k){ok[nomeItem(store[k])]=1});
+    if(r[0]&&r[1]&&r[2]){var antes=cart.length;cart=cart.filter(function(i){return ok[i.nome]});if(cart.length!==antes){salvar();atualizar()}}
   });
 })();
 </script>
